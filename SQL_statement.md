@@ -3,7 +3,7 @@ SQL Statement for BigQuery
 
 * Data source: [Google Patents Public Datasets on BigQuery](https://console.cloud.google.com/marketplace/details/google_patents_public_datasets/google-patents-public-data?filter=solution-type:dataset&q=google%20patents%20public%20datasets&id=2877ec09-debc-41bd-a2d7-df1fd089e4d0)
 
-* The following will select the first claims of all US utility patents in 2015 and aggregate the CPC codes at subclass level for each patent as one column in query result. (a caveat: the "CPC subclass" is called "group_id" in the cpc_current table, for unknown reason)
+* The following SQL selects the first claims of all US utility patents in 2015 and aggregate the CPC codes at subclass level for each patent in the first column of query result. (a caveat: the "CPC subclass" is called "group_id" in the cpc_current table, for unknown reason)
 
 ``` python
 # python code 
@@ -23,6 +23,12 @@ query = '''
 ''' % ('group_id', 'group_id', '2015', '2015')
 ```
 
-* The following will select the first claims of all US utility patents in 2015 and aggregate the CPC codes at subclass level for each patent as one column in query result.
+* The following SQL selects all labels at the CPC subclass level in 2015.
 ``` python
-
+# python code 
+query = '''
+  SELECT t1.id, t1.title
+  FROM `patents-public-data.patentsview.%s` t1
+  order by t1.id
+''' % 'group_id'
+```

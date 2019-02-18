@@ -3,8 +3,10 @@ SQL Statement for BigQuery
 
 * Data source: [Google Patents Public Datasets on BigQuery](https://console.cloud.google.com/marketplace/details/google_patents_public_datasets/google-patents-public-data?filter=solution-type:dataset&q=google%20patents%20public%20datasets&id=2877ec09-debc-41bd-a2d7-df1fd089e4d0)
 
-* The following will select the first claims of all US utility patents in 2015 and aggregate the CPC codes at subclass level for each patent as one column in query result.
+* The following will select the first claims of all US utility patents in 2015 and aggregate the CPC codes at subclass level for each patent as one column in query result. (a caveat: the "CPC subclass" is called "group_id" in the cpc_current table, for unknown reason)
+
 ``` python
+# python code 
 query = '''
   SELECT STRING_AGG(distinct t2.%s order by t2.%s) AS cpc_ids, 
   t1.id, t1.date, text

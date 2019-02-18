@@ -1,7 +1,7 @@
 SQL Statement for BigQuery
 --------------------------
 
-* Data source: [Google Patents Public Datasets on BigQuery](https://console.cloud.google.com/marketplace/browse?q=google%20patents%20public%20datasets&filter=solution-type:dataset&_ga=2.228039573.-921840393.1527468459)
+* Data source: [Google Patents Public Datasets on BigQuery](https://console.cloud.google.com/marketplace/details/google_patents_public_datasets/google-patents-public-data?filter=solution-type:dataset&q=google%20patents%20public%20datasets&id=2877ec09-debc-41bd-a2d7-df1fd089e4d0)
 
 * The following will select the first claims of all US utility patents in 2015 and aggregate the CPC codes at subclass level for each patent as one column in query result.
 ``` python
